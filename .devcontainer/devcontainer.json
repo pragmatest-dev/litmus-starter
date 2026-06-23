@@ -1,0 +1,37 @@
+// Litmus starter — a clean Codespace for building your own test solution.
+//
+// This repo is NOT the Litmus source. It's a template: click
+//   Use this template ▸ Create codespace
+// and you get a fresh workspace with litmus-test installed and a starter
+// project scaffolded against mock instruments. No local install, no hardware.
+//
+// Nothing Litmus-specific is committed here — the starter is generated at
+// create time by the same version of litmus-test that was just installed,
+// so it never drifts from the release.
+{
+  "name": "Litmus starter",
+  "image": "mcr.microsoft.com/devcontainers/python:1-3.12-bookworm",
+
+  // Install the latest published Litmus, then scaffold a Tier-2 starter
+  // project INTO THE WORKSPACE ROOT (no name = current dir, like `uv init`).
+  // --no-git: the workspace is already a git repo, don't nest another.
+  "postCreateCommand": "pip install --upgrade pip && pip install litmus-test && litmus init --starter --no-git",
+
+  // The operator UI runs on 8000; auto-forward and pop the in-editor preview.
+  "forwardPorts": [8000],
+  "portsAttributes": {
+    "8000": {
+      "label": "Litmus Operator UI",
+      "onAutoForward": "openPreview"
+    }
+  },
+
+  "customizations": {
+    "vscode": {
+      "extensions": ["ms-python.python", "charliermarsh.ruff"]
+    }
+  },
+
+  // Printed in the terminal each time you attach.
+  "postAttachCommand": "printf '\\n\\xF0\\x9F\\xA7\\xAA  Litmus starter ready.\\n\\n  pytest                         # tests pass on mock instruments\\n  litmus runs                    # see the results\\n  litmus serve --host 0.0.0.0    # operator UI on forwarded port 8000\\n\\nEdit the tests and station YAML, then re-run. This whole workspace is\\nyour project \\xE2\\x80\\x94 commit it and it is your solution.\\n\\n'"
+}
