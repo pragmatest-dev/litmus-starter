@@ -15,7 +15,12 @@
   // Install the latest published Litmus, then scaffold a Tier-2 starter
   // project INTO THE WORKSPACE ROOT (no name = current dir, like `uv init`).
   // --no-git: the workspace is already a git repo, don't nest another.
-  "postCreateCommand": "pip install --upgrade pip && pip install litmus-test && litmus init --starter --no-git",
+  //
+  // `litmus setup copilot` wires the project for GitHub Copilot: an MCP
+  // server (.vscode/mcp.json → `litmus mcp serve`, no uv needed),
+  // .github/copilot-instructions.md, prompt stubs (.github/prompts/), and
+  // AGENTS.md.
+  "postCreateCommand": "pip install --upgrade pip && pip install litmus-test && litmus init --starter --no-git && litmus setup copilot",
 
   // The operator UI starts automatically via a folderOpen VS Code task
   // (.vscode/tasks.json) that runs `litmus serve` in a visible terminal —
