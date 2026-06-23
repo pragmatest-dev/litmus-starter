@@ -19,14 +19,54 @@ project against **mock instruments** right in the workspace root.
 
 ## First commands
 
+The operator UI starts on its own (see below). The rest:
+
 ```bash
 pytest                         # tests pass against mock instruments
 litmus runs                    # the runs those tests produced
-litmus serve --host 0.0.0.0    # operator UI; port 8000 auto-forwards
 ```
 
-Bind `0.0.0.0` so the forwarded port resolves through the Codespaces proxy.
-Then edit the tests and station YAML, commit, and it's your solution.
+Edit the tests and station YAML, commit, and it's your solution.
+
+## Running the operator UI
+
+In a codespace the UI **starts automatically** — a VS Code task runs
+`litmus serve --host 0.0.0.0` when the workspace opens (look for the terminal
+labeled *litmus serve*) and the forwarded port opens in a tab. It's not special
+infrastructure; that one command is the UI. Stop or restart it from that
+terminal.
+
+On your own machine it's identical:
+
+```bash
+litmus serve            # http://localhost:8000
+```
+
+For an always-on UI, run it under a process manager. A minimal systemd unit:
+
+```ini
+# /etc/systemd/system/litmus-serve.service
+[Unit]
+Description=Litmus operator UI
+After=network.target
+
+[Service]
+WorkingDirectory=/path/to/your/project
+ExecStart=/usr/local/bin/litmus serve --host 0.0.0.0 --port 8000
+Restart=on-failure
+User=youruser
+
+[Install]
+WantedBy=multi-user.target
+```
+
+```bash
+sudo systemctl enable --now litmus-serve
+```
+
+Use the absolute path to `litmus` in `ExecStart` (find it with `which litmus`) —
+systemd doesn't inherit your shell's `PATH`. On macOS, the launchd equivalent
+is a user agent running the same `litmus serve` command.
 
 ## No drift
 

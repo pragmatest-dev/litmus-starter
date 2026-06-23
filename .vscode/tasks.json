@@ -1,0 +1,21 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      // Auto-starts when the workspace opens, in a visible dedicated terminal,
+      // so the operator UI is running AND the command is on screen (it's just
+      // `litmus serve` — the same thing you'd run on your own machine).
+      "label": "litmus serve",
+      "type": "shell",
+      "command": "litmus serve --host 0.0.0.0",
+      "isBackground": true,
+      "problemMatcher": [],
+      "runOptions": { "runOn": "folderOpen" },
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "focus": false
+      }
+    }
+  ]
+}
