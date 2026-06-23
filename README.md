@@ -14,30 +14,30 @@ you make your own copy, and it becomes your project.
 
 Click the badge (or **Use this template ▸ Open in a codespace**). A codespace
 boots with the latest `litmus-test` installed and a starter project scaffolded
-against **mock instruments** — no local install, no hardware. The operator UI
-starts on its own.
+against **mock instruments** — no local install, no hardware. A getting-started
+task prints the commands to run in a terminal when the workspace opens.
 
 It's a **sandbox**: nothing lands on GitHub until you publish it. See
 [Keep your work](#keep-your-work) below.
 
 ## First commands
 
-The operator UI starts on its own (see below). The rest:
+From the terminal:
 
 ```bash
 pytest                         # tests pass against mock instruments
 litmus runs                    # the runs those tests produced
+litmus serve --host 0.0.0.0    # operator UI on forwarded port 8000
 ```
 
 Edit the tests and station YAML and re-run — that loop is your test development.
 
 ## Running the operator UI
 
-In a codespace the UI **starts automatically** — a VS Code task runs
-`litmus serve --host 0.0.0.0` when the workspace opens (look for the terminal
-labeled *litmus serve*) and the forwarded port opens in a tab. It's not special
-infrastructure; that one command is the UI. Stop or restart it from that
-terminal.
+In a codespace, run `litmus serve --host 0.0.0.0` in a terminal — when it binds
+port 8000, the forwarded port opens in a tab. That one command is the UI; it's
+not special infrastructure. (A getting-started task prints these commands in a
+terminal when the workspace opens.)
 
 On your own machine it's identical:
 

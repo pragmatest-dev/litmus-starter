@@ -1,0 +1,14 @@
+🧪  Litmus starter — running on mock instruments
+═══════════════════════════════════════════════════
+
+  No hardware, nothing installed locally. Try these:
+
+    pytest                         run the tests
+    litmus runs                    see the results
+    litmus serve --host 0.0.0.0    start the operator UI (port 8000)
+
+  Running `litmus serve` opens the forwarded port in a tab.
+
+  Full tour ........ open WELCOME.md
+  Keep your work ... Source Control ▸ Publish to GitHub ▸ Private
+  Real hardware .... needs a local install (see WELCOME.md)

@@ -4,16 +4,16 @@ This codespace has Litmus installed and a starter project scaffolded against
 **mock instruments**. No hardware, nothing to install. Here's the 30-second
 tour.
 
-## The operator UI is starting now
+## Start the operator UI
 
-A terminal labeled **litmus serve** is running this command:
+Run it yourself — one command:
 
 ```bash
 litmus serve --host 0.0.0.0
 ```
 
-The UI opens automatically in a tab once it's up (port 8000). It's not magic —
-that one command *is* the UI. Stop or restart it from the terminal anytime.
+When it binds port 8000, the forwarded port opens in a tab. That command *is*
+the UI — the same one you'd run on your own machine.
 
 ## What to try
 
@@ -21,8 +21,8 @@ No hardware needed — everything here runs on mock instruments:
 
 1. **Run the tests** — `pytest`. Four pass; limits are checked and results
    recorded. Then `litmus runs` to list them.
-2. **Browse the operator UI** — the tab that opened (port 8000): runs,
-   measurements, and the metrics page (yield, Cpk/Ppk, Pareto).
+2. **Browse the operator UI** — run `litmus serve --host 0.0.0.0`, then open
+   port 8000: runs, measurements, and the metrics page (yield, Cpk/Ppk, Pareto).
 3. **Author a test** — add a pytest function and edit the station YAML in
    `stations/`, then re-run. That edit-run loop is test development.
 4. **Drive it with AI** — open Copilot Chat in **agent mode** and ask about

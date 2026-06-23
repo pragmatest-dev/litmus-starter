@@ -22,11 +22,9 @@
   // AGENTS.md.
   "postCreateCommand": "pip install --upgrade pip && pip install litmus-test && litmus init --starter --no-git && litmus setup copilot",
 
-  // The operator UI starts automatically via a folderOpen VS Code task
-  // (.vscode/tasks.json) that runs `litmus serve` in a visible terminal —
-  // so it's running on open, and you can see the exact command.
-  //
-  // The operator UI runs on 8000; auto-forward and pop the in-editor preview.
+  // A folderOpen VS Code task (.vscode/tasks.json) prints getting-started
+  // guidance in a terminal on open. The operator UI is started manually with
+  // `litmus serve` — when it binds 8000, the forwarded port opens in a tab.
   "forwardPorts": [8000],
   "portsAttributes": {
     "8000": {
@@ -43,8 +41,5 @@
     "codespaces": {
       "openFiles": ["WELCOME.md"]
     }
-  },
-
-  // Printed in the terminal each time you attach.
-  "postAttachCommand": "printf '\\n\\xF0\\x9F\\xA7\\xAA  Litmus starter. The operator UI auto-starts in the editor (litmus serve) and opens in a tab.\\n\\n  pytest                         # run the tests (mock instruments)\\n  See WELCOME.md for the 30-second tour.\\n\\nHeadless (no editor)? Start the UI yourself:  litmus serve --host 0.0.0.0\\n\\n'"
+  }
 }

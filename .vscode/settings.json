@@ -1,0 +1,5 @@
+{
+  // Run the folderOpen task (the getting-started guidance) without the
+  // "allow automatic tasks in this folder?" prompt.
+  "task.allowAutomaticTasks": "on"
+}

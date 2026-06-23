@@ -2,20 +2,24 @@
   "version": "2.0.0",
   "tasks": [
     {
-      // Auto-starts when the workspace opens, in a visible dedicated terminal,
-      // so the operator UI is running AND the command is on screen (it's just
-      // `litmus serve` — the same thing you'd run on your own machine).
-      "label": "litmus serve",
+      // Prints the getting-started guidance in a terminal when the workspace
+      // opens. Needs "task.allowAutomaticTasks": "on" (.vscode/settings.json) so
+      // it runs without the "allow automatic tasks in this folder?" prompt.
+      // This only prints guidance — it does NOT start the server; run
+      // `litmus serve` yourself.
+      "label": "Litmus: start here",
       "type": "shell",
-      "command": "litmus serve --host 0.0.0.0",
-      "isBackground": true,
-      "problemMatcher": [],
-      "runOptions": { "runOn": "folderOpen" },
+      "command": "cat .devcontainer/welcome.txt",
       "presentation": {
         "reveal": "always",
         "panel": "dedicated",
-        "focus": false
-      }
+        "focus": false,
+        "echo": false,
+        "clear": true,
+        "showReuseMessage": false
+      },
+      "runOptions": { "runOn": "folderOpen" },
+      "problemMatcher": []
     }
   ]
 }
