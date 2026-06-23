@@ -10,12 +10,15 @@ you make your own copy, and it becomes your project.
 
 ## Use it
 
-1. Click **Use this template ▸ Create a new repository** (or **Create a
-   codespace** to try it without keeping a repo).
-2. In the new repo: **Code ▸ Codespaces ▸ Create codespace.**
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/pragmatest-dev/litmus-starter)
 
-The container installs the latest `litmus-test` and scaffolds a starter
-project against **mock instruments** right in the workspace root.
+Click the badge (or **Use this template ▸ Open in a codespace**). A codespace
+boots with the latest `litmus-test` installed and a starter project scaffolded
+against **mock instruments** — no local install, no hardware. The operator UI
+starts on its own.
+
+It's a **sandbox**: nothing lands on GitHub until you publish it. See
+[Keep your work](#keep-your-work) below.
 
 ## First commands
 
@@ -26,7 +29,7 @@ pytest                         # tests pass against mock instruments
 litmus runs                    # the runs those tests produced
 ```
 
-Edit the tests and station YAML, commit, and it's your solution.
+Edit the tests and station YAML and re-run — that loop is your test development.
 
 ## Running the operator UI
 
@@ -67,6 +70,18 @@ sudo systemctl enable --now litmus-serve
 Use the absolute path to `litmus` in `ExecStart` (find it with `which litmus`) —
 systemd doesn't inherit your shell's `PATH`. On macOS, the launchd equivalent
 is a user agent running the same `litmus serve` command.
+
+## Keep your work
+
+This codespace is a **sandbox** — your changes live only here until you publish
+them. Nothing is on GitHub until you do.
+
+To save it as your own project: open the **Source Control** panel ▸ **Publish to
+GitHub** ▸ choose **Private** (or Public). That creates a fresh repo from the
+codespace — your solution, your visibility. If your test specs are sensitive,
+choose **Private**.
+
+(Just kicking the tires? Do nothing — delete the codespace and it's gone.)
 
 ## AI-ready (Copilot)
 

@@ -28,10 +28,12 @@ recorded:
 litmus runs
 ```
 
-## This workspace is your project
+## Keep your work (and keep it private)
 
-Edit the tests and the station YAML, re-run, and commit. The repo **is** your
-solution — keep building on it.
+This codespace is a **sandbox** — your changes live only here until you publish.
+To save it: open **Source Control** ▸ **Publish to GitHub** ▸ choose **Private**.
+That creates your own repo from the codespace. Nothing is on GitHub until then,
+so sensitive specs stay off GitHub unless you publish (choose **Private**).
 
 ## On your own machine
 
