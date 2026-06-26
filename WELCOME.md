@@ -19,10 +19,10 @@ the UI — the same one you'd run on your own machine.
 
 No hardware needed — everything here runs on mock instruments:
 
-1. **Run the tests** — `pytest`. Four pass; limits are checked and results
-   recorded. Then `litmus runs` to list them.
+1. **Run the tests** — `pytest`. The example test passes; its limit is checked
+   and the result recorded. Then `litmus runs` to list it.
 2. **Browse the operator UI** — run `litmus serve --host 0.0.0.0`, then open
-   port 8000: runs, measurements, and the metrics page (yield, Cpk/Ppk, Pareto).
+   port 8000: runs, measurements, and the metrics page (yield, Ppk, Pareto).
 3. **Author a test** — add a pytest function and edit the station YAML in
    `stations/`, then re-run. That edit-run loop is test development.
 4. **Drive it with AI** — open Copilot Chat in **agent mode** and ask about
