@@ -16,11 +16,12 @@
   // project INTO THE WORKSPACE ROOT (no name = current dir, like `uv init`).
   // --no-git: the workspace is already a git repo, don't nest another.
   //
-  // `litmus setup copilot` wires the project for GitHub Copilot: an MCP
-  // server (.vscode/mcp.json → `litmus mcp serve`, no uv needed),
-  // .github/copilot-instructions.md, prompt stubs (.github/prompts/), and
-  // AGENTS.md.
-  "postCreateCommand": "pip install --upgrade pip && pip install litmus-test && litmus init --starter --no-git && litmus setup copilot",
+  // --ai copilot: wire the project for GitHub Copilot in the same step (no
+  // separate `litmus setup`, and no interactive prompt to hang the build) —
+  // an MCP server (.vscode/mcp.json → `litmus mcp serve`, no uv needed),
+  // .github/copilot-instructions.md, AGENTS.md, and the Litmus Agent Skills
+  // (.github/skills/).
+  "postCreateCommand": "pip install --upgrade pip && pip install litmus-test && litmus init --starter --no-git --ai copilot",
 
   // A folderOpen VS Code task (.vscode/tasks.json) prints getting-started
   // guidance in a terminal on open. The operator UI is started manually with
