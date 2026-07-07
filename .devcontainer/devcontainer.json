@@ -21,7 +21,12 @@
   // an MCP server (.vscode/mcp.json → `litmus mcp serve`, no uv needed),
   // .github/copilot-instructions.md, AGENTS.md, and the Litmus Agent Skills
   // (.github/skills/).
-  "postCreateCommand": "pip install --upgrade pip && pip install litmus-test && litmus init --starter --no-git --ai copilot",
+  //
+  // Then run the starter tests once (mock instruments, deterministic) so the
+  // workspace opens with data already there — `litmus serve`'s operator UI and
+  // `litmus runs` show a passing run immediately, and it doubles as a create-time
+  // smoke test of the freshly-installed wheel.
+  "postCreateCommand": "pip install --upgrade pip && pip install litmus-test && litmus init --starter --no-git --ai copilot && python -m pytest -q",
 
   // A folderOpen VS Code task (.vscode/tasks.json) prints getting-started
   // guidance in a terminal on open. The operator UI is started manually with
