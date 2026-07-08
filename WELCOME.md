@@ -2,11 +2,15 @@
 
 This codespace has Litmus installed and a starter project scaffolded against
 **mock instruments**. No hardware, nothing to install. Here's the 30-second
-tour.
+tour. Litmus runs from the terminal and from the UI.
+
+## Run the example test
+
+```bash
+pytest
+```
 
 ## Start the operator UI
-
-Run it yourself — one command:
 
 ```bash
 litmus serve
