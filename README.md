@@ -34,10 +34,8 @@ Edit the tests and station YAML and re-run — that loop is your test developmen
 
 ## Running the operator UI
 
-In a codespace, run `litmus serve --host 0.0.0.0` in a terminal — when it binds
-port 8000, the forwarded port opens in a tab. That one command is the UI; it's
-not special infrastructure. (A getting-started task prints these commands in a
-terminal when the workspace opens.)
+In a codespace, run `litmus serve` in a terminal — when it launches, the forwarded 
+port opens in a tab.
 
 On your own machine it's identical:
 
