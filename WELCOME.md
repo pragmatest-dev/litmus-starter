@@ -12,8 +12,9 @@ Run it yourself — one command:
 litmus serve
 ```
 
-When it binds port 8000, the forwarded port opens in a tab. That command *is*
-the UI — the same one you'd run on your own machine.
+When it launches, the forwarded port opens in a tab. That command *is*
+the UI — the same one you'd run on your own machine. You can pop out the tab
+into a new window.
 
 ## What to try
 
@@ -21,12 +22,12 @@ No hardware needed — everything here runs on mock instruments:
 
 1. **Run the tests** — `pytest`. The example test passes; its limit is checked
    and the result recorded. Then `litmus runs` to list it.
-2. **Browse the operator UI** — run `litmus serve --host 0.0.0.0`, then open
-   port 8000: runs, measurements, and the metrics page (yield, Ppk, Pareto).
-3. **Author a test** — add a pytest function and edit the station YAML in
-   `stations/`, then re-run. That edit-run loop is test development.
+2. **Browse the operator UI** — run `litmus serve`, then open port 8000: 
+   check runs, measurements, and the metrics page (yield, Ppk, Pareto).
+3. **Author a test** — check ou `tests/` and modify or add new pytests. Use
+   the pytest extension to run and debug.
 4. **Drive it with AI** — open Copilot Chat in **agent mode** and ask about
-   your runs; it calls Litmus's MCP tools. (Needs Copilot access.)
+   your runs. It calls Litmus's CLI and MCP tools. (Needs Copilot access.)
 
 **Where the sandbox stops:** real instrument control — PyVISA/serial to an
 actual bench — needs a local install. See *On your own machine* below.
