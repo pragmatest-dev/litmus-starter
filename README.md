@@ -27,7 +27,7 @@ From the terminal:
 ```bash
 pytest                         # tests pass against mock instruments
 litmus runs                    # the runs those tests produced
-litmus serve --host 0.0.0.0    # operator UI on forwarded port 8000
+litmus serve                   # operator UI on forwarded port 8000
 ```
 
 Edit the tests and station YAML and re-run — that loop is your test development.
