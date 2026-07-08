@@ -88,28 +88,32 @@ GitHub Copilot:
 
 - `.github/copilot-instructions.md` and `AGENTS.md` — project context for
   Copilot (and Copilot CLI / other agents).
-- `.github/prompts/` — ready-made Litmus prompt files.
+- `.github/skills/` — the packaged Litmus **Agent Skills**; Copilot reads their
+  `SKILL.md` natively (VS Code / JetBrains agent mode, Copilot CLI, and the
+  coding agent all discover them automatically).
 - `.vscode/mcp.json` — the Litmus **MCP server** (`litmus mcp serve`), exposing
-  your runs, steps, and measurements to Copilot's agent mode.
+  your test data — runs, steps, measurements, channels, files, metrics — to
+  Copilot's agent mode.
 
 Open Copilot Chat, switch to **agent mode**, and ask about your test data.
 (Requires Copilot access for your account or org; Codespaces must have Copilot
 enabled.)
 
-### Use Litmus MCP anywhere — zero install
+### Use Litmus MCP in any AI client
 
-To wire Litmus's MCP server into any AI client *without installing it first*,
-hand it this `uvx` launcher (needs [uv](https://docs.astral.sh/uv/)):
+To wire Litmus's MCP server into any AI client by hand, give it this launcher
+(`litmus-test` must be installed):
 
 ```json
 {
-  "command": "uvx",
-  "args": ["--from", "litmus-test", "litmus", "mcp", "serve"]
+  "command": "litmus",
+  "args": ["mcp", "serve"]
 }
 ```
 
-`litmus setup claude-code | claude-desktop | cursor | cline` wire the same
-server into those tools.
+`litmus setup claude-code | claude-desktop | copilot | cursor | codex | cline`
+do it for you — each writes the MCP config in that tool's native location (plus
+the skill and instruction files where the tool supports them).
 
 ## No drift
 
