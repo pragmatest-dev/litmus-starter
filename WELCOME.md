@@ -9,7 +9,7 @@ tour.
 Run it yourself — one command:
 
 ```bash
-litmus serve --host 0.0.0.0
+litmus serve
 ```
 
 When it binds port 8000, the forwarded port opens in a tab. That command *is*
