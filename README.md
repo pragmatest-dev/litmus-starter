@@ -1,19 +1,19 @@
-# Litmus starter
+# TesterKit starter
 
 A clean GitHub Codespace for building your own hardware-test solution with
-[Litmus](https://github.com/pragmatest-dev/litmus) — no local install, no
+[TesterKit](https://github.com/pragmatest-dev/testerkit) — no local install, no
 hardware.
 
-This repo is **not** the Litmus source. It's a [template
+This repo is **not** the TesterKit source. It's a [template
 repository](https://docs.github.com/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template):
 you make your own copy, and it becomes your project.
 
 ## Use it
 
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/pragmatest-dev/litmus-starter)
+[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/pragmatest-dev/testerkit-starter)
 
 Click the badge (or **Use this template ▸ Open in a codespace**). A codespace
-boots with the latest `litmus-test` installed and a starter project scaffolded
+boots with the latest `testerkit` installed and a starter project scaffolded
 against **mock instruments** — no local install, no hardware. A getting-started
 task prints the commands to run in a terminal when the workspace opens.
 
@@ -26,34 +26,34 @@ From the terminal:
 
 ```bash
 pytest                         # tests pass against mock instruments
-litmus runs                    # the runs those tests produced
-litmus serve                   # operator UI on forwarded port 8000
+testerkit runs                    # the runs those tests produced
+testerkit serve                   # operator UI on forwarded port 8000
 ```
 
 Edit the tests and station YAML and re-run — that loop is your test development.
 
 ## Running the operator UI
 
-In a codespace, run `litmus serve` in a terminal — when it launches, the forwarded 
+In a codespace, run `testerkit serve` in a terminal — when it launches, the forwarded 
 port opens in a tab.
 
 On your own machine it's identical:
 
 ```bash
-litmus serve            # http://localhost:8000
+testerkit serve            # http://localhost:8000
 ```
 
 For an always-on UI, run it under a process manager. A minimal systemd unit:
 
 ```ini
-# /etc/systemd/system/litmus-serve.service
+# /etc/systemd/system/testerkit-serve.service
 [Unit]
-Description=Litmus operator UI
+Description=TesterKit operator UI
 After=network.target
 
 [Service]
 WorkingDirectory=/path/to/your/project
-ExecStart=/usr/local/bin/litmus serve --host 0.0.0.0 --port 8000
+ExecStart=/usr/local/bin/testerkit serve --host 0.0.0.0 --port 8000
 Restart=on-failure
 User=youruser
 
@@ -62,12 +62,12 @@ WantedBy=multi-user.target
 ```
 
 ```bash
-sudo systemctl enable --now litmus-serve
+sudo systemctl enable --now testerkit-serve
 ```
 
-Use the absolute path to `litmus` in `ExecStart` (find it with `which litmus`) —
+Use the absolute path to `testerkit` in `ExecStart` (find it with `which testerkit`) —
 systemd doesn't inherit your shell's `PATH`. On macOS, the launchd equivalent
-is a user agent running the same `litmus serve` command.
+is a user agent running the same `testerkit serve` command.
 
 ## Keep your work
 
@@ -83,24 +83,24 @@ choose **Private**.
 
 ## AI-ready (Copilot)
 
-The codespace is already wired for GitHub Copilot on create — Litmus's Agent
+The codespace is already wired for GitHub Copilot on create — TesterKit's Agent
 Skills, project instructions, and MCP server are installed for you. Nothing to
 set up.
 
 Open Copilot Chat, switch to **agent mode**, and ask about your test data — it
-uses `litmus runs`, the Query API, and the Litmus MCP tools instead of poking at
+uses `testerkit runs`, the Query API, and the TesterKit MCP tools instead of poking at
 files. (Requires Copilot access for your account or org; Codespaces must have
 Copilot enabled.)
 
 Using a different assistant (Claude, Cursor, Codex…)? Full per-tool setup lives
-in the [Litmus docs](https://github.com/pragmatest-dev/litmus).
+in the [TesterKit docs](https://github.com/pragmatest-dev/testerkit).
 
 ## No drift
 
-Nothing Litmus-specific is committed here — only `.devcontainer/`. The
+Nothing TesterKit-specific is committed here — only `.devcontainer/`. The
 starter project is generated at codespace-create time by the same
-`litmus-test` version that was just installed, so the scaffold always
-matches the release. There's nothing to rebuild when Litmus updates.
+`testerkit` version that was just installed, so the scaffold always
+matches the release. There's nothing to rebuild when TesterKit updates.
 
 ## Staying under storage limits
 
@@ -117,12 +117,12 @@ stopped. Two independent levers:
   run still points at:
 
   ```bash
-  litmus data prune --older-than 7d --dry-run   # preview
-  litmus data prune --older-than 7d             # delete
+  testerkit data prune --older-than 7d --dry-run   # preview
+  testerkit data prune --older-than 7d             # delete
   ```
 
 `data/` is git-ignored, so it never bloats your repo. Deletion stays
-manual on purpose — Litmus never removes run data behind your back.
+manual on purpose — TesterKit never removes run data behind your back.
 
 ## Maintainer note
 

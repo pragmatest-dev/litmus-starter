@@ -1,40 +1,40 @@
-// Litmus starter — a clean Codespace for building your own test solution.
+// TesterKit starter — a clean Codespace for building your own test solution.
 //
-// This repo is NOT the Litmus source. It's a template: click
+// This repo is NOT the TesterKit source. It's a template: click
 //   Use this template ▸ Create codespace
-// and you get a fresh workspace with litmus-test installed and a starter
+// and you get a fresh workspace with testerkit installed and a starter
 // project scaffolded against mock instruments. No local install, no hardware.
 //
-// Nothing Litmus-specific is committed here — the starter is generated at
-// create time by the same version of litmus-test that was just installed,
+// Nothing TesterKit-specific is committed here — the starter is generated at
+// create time by the same version of testerkit that was just installed,
 // so it never drifts from the release.
 {
-  "name": "Litmus starter",
+  "name": "TesterKit starter",
   "image": "mcr.microsoft.com/devcontainers/python:1-3.12-bookworm",
 
-  // Install the latest published Litmus, then scaffold a Tier-2 starter
+  // Install the latest published TesterKit, then scaffold a Tier-2 starter
   // project INTO THE WORKSPACE ROOT (no name = current dir, like `uv init`).
   // --no-git: the workspace is already a git repo, don't nest another.
   //
   // --ai copilot: wire the project for GitHub Copilot in the same step (no
-  // separate `litmus setup`, and no interactive prompt to hang the build) —
-  // an MCP server (.vscode/mcp.json → `litmus mcp serve`, no uv needed),
-  // .github/copilot-instructions.md, AGENTS.md, and the Litmus Agent Skills
+  // separate `testerkit setup`, and no interactive prompt to hang the build) —
+  // an MCP server (.vscode/mcp.json → `testerkit mcp serve`, no uv needed),
+  // .github/copilot-instructions.md, AGENTS.md, and the TesterKit Agent Skills
   // (.github/skills/).
   //
   // Then run the starter tests once (mock instruments, deterministic) so the
-  // workspace opens with data already there — `litmus serve`'s operator UI and
-  // `litmus runs` show a passing run immediately, and it doubles as a create-time
+  // workspace opens with data already there — `testerkit serve`'s operator UI and
+  // `testerkit runs` show a passing run immediately, and it doubles as a create-time
   // smoke test of the freshly-installed wheel.
-  "postCreateCommand": "pip install --upgrade pip && pip install litmus-test && litmus init --starter --no-git --ai copilot && python -m pytest -q",
+  "postCreateCommand": "pip install --upgrade pip && pip install testerkit && testerkit init --starter --no-git --ai copilot && python -m pytest -q",
 
   // A folderOpen VS Code task (.vscode/tasks.json) prints getting-started
   // guidance in a terminal on open. The operator UI is started manually with
-  // `litmus serve` — when it binds 8000, the forwarded port opens in a tab.
+  // `testerkit serve` — when it binds 8000, the forwarded port opens in a tab.
   "forwardPorts": [8000],
   "portsAttributes": {
     "8000": {
-      "label": "Litmus Operator UI",
+      "label": "TesterKit Operator UI",
       "onAutoForward": "openPreview"
     }
   },

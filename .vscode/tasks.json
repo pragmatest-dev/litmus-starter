@@ -6,8 +6,8 @@
       // opens. Needs "task.allowAutomaticTasks": "on" (.vscode/settings.json) so
       // it runs without the "allow automatic tasks in this folder?" prompt.
       // This only prints guidance — it does NOT start the server; run
-      // `litmus serve` yourself.
-      "label": "Litmus: start here",
+      // `testerkit serve` yourself.
+      "label": "TesterKit: start here",
       "type": "shell",
       "command": "cat .devcontainer/welcome.txt",
       "presentation": {
